@@ -1,0 +1,21 @@
+import { createSlice } from "@reduxjs/toolkit";
+import { COLORS, MENU_ITEMS } from "@/constants";
+
+const initialState = {
+  [MENU_ITEMS.PENCIL]: {
+    color: COLORS.BLACK,
+    size: 3,
+  },
+  [MENU_ITEMS.ERASER]: {
+    color: COLORS.WHITE,
+    size: 3,
+  },
+  [MENU_ITEMS.UNDO]: {},
+  [MENU_ITEMS.REDO]: {},
+};
+
+export const toolboxSlice = createSlice({
+  name: "toolbox",
+  initialState,
+  reducers: {},
+});
