@@ -6,7 +6,7 @@ import cx from "classnames";
 
 const Toolbox = () => {
   const activeMenuItems = useSelector(state => state.menu.activeMenuItems);
-  const { color } = useSelector(state => state.toolbox[activeMenuItems]);
+  const { color, size } = useSelector(state => state.toolbox[activeMenuItems]);
 
   const dispatch = useDispatch();
 
@@ -84,6 +84,7 @@ const Toolbox = () => {
               max={10}
               step={1}
               onChange={updateBrushSize}
+              value={size}
             />
           </div>
         </div>

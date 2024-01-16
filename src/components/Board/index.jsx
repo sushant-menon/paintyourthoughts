@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 const Board = () => {
@@ -20,7 +20,7 @@ const Board = () => {
     changeConfig();
   }, [color, size]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!canvasRef.current) return;
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
@@ -42,7 +42,7 @@ const Board = () => {
       shouldDraw.current = false;
     };
 
-    //canvas.addEventListener("mousedown", handleMouseDown);
+    canvas.addEventListener("mousedown", handleMouseDown);
     canvas.addEventListener("mousemove", handleMouseMove);
     canvas.addEventListener("mouseup", handleMouseUp);
 
