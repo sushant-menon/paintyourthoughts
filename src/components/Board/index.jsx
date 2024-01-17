@@ -1,11 +1,20 @@
+import { MENU_ITEMS } from "@/constants";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 const Board = () => {
   const canvasRef = useRef(null);
   const shouldDraw = useRef(false);
-  const activeMenuItems = useSelector(state => state.menu.activeMenuItems);
+  const { activeMenuItems, actionMenuItems } = useSelector(state => state.menu);
   const { color, size } = useSelector(state => state.toolbox[activeMenuItems]);
+
+  // useEffect(() => {
+  //   if (!canvasRef.current) return;
+  //   const canvas = canvasRef.current;
+  //   const context = canvas.getContext("2d");
+
+  //   // if(activeMenuItems === MENU_ITEMS)
+  // }, []);
 
   useEffect(() => {
     if (!canvasRef.current) return;
